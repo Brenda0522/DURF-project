@@ -1,0 +1,278 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Durf},
+  pdfauthor={Brenda Liu, Jianan Liao, Qihang Xu, Yichen Qian},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Durf}
+\author{Brenda Liu, Jianan Liao, Qihang Xu, Yichen Qian}
+\date{4/29/2022}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{25}\NormalTok{)}
+\NormalTok{data[}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(data), }\DecValTok{10}\NormalTok{, }\AttributeTok{replace=}\ConstantTok{FALSE}\NormalTok{), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                       Urbanization     GDP Labor    Finance Birth_rate College
+## 黑龙江省-2016            0.6110309 11895.0 424.9 0.07268600       6.12   19.78
+## 甘肃省-2014              0.4227578  6518.4 264.7 0.06891262      12.21   12.93
+## 贵州省-2010              0.3380282  4519.0 224.3 0.05713654      13.96    9.93
+## 湖南省-2002                     NA  4151.5    NA         NA      11.56   15.69
+## 内蒙古自治区-2006        0.4865424  4161.8    NA 0.02724782       9.87    7.98
+## 北京市-2008              0.8492380 11813.1 570.3 0.13954800       8.17   15.61
+## 青海省-2007              0.4003623   720.1    NA 0.03763366      14.93    1.11
+## 新疆维吾尔自治区-2008    0.3965275  4142.5 248.2 0.04482800      14.31    6.53
+## 内蒙古自治区-2016        0.6338259 13789.3 293.2 0.05294685       9.03   12.19
+## 广西壮族自治区-2019      0.5297069 21237.1 404.1 0.06919495      13.31   35.98
+##                       College_ratio
+## 黑龙江省-2016          0.046552....
+## 甘肃省-2014            0.048847....
+## 贵州省-2010            0.044271....
+## 湖南省-2002                      NA
+## 内蒙古自治区-2006                NA
+## 北京市-2008            0.027371....
+## 青海省-2007                      NA
+## 新疆维吾尔自治区-2008  0.026309....
+## 内蒙古自治区-2016      0.041575....
+## 广西壮族自治区-2019    0.089037....
+\end{verbatim}
+
+\newpage
+
+Straight-up pooled regression
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(GDP) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Urbanization }\SpecialCharTok{+} \FunctionTok{log}\NormalTok{(Labor) }\SpecialCharTok{+}\NormalTok{ Finance }\SpecialCharTok{+}\NormalTok{ Birth\_rate }\SpecialCharTok{+}\NormalTok{ College\_ratio, }
+         \AttributeTok{data =}\NormalTok{ data)}
+\FunctionTok{coeftest}\NormalTok{(m1, }\AttributeTok{df =} \ConstantTok{Inf}\NormalTok{, }\AttributeTok{vcov =} \FunctionTok{vcovHC}\NormalTok{(m1, }\AttributeTok{type =} \StringTok{"HC1"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## z test of coefficients:
+## 
+##                Estimate Std. Error z value  Pr(>|z|)    
+## (Intercept)   1.0131777  0.1586472  6.3864 1.699e-10 ***
+## Urbanization  1.2064188  0.1709118  7.0587 1.680e-12 ***
+## log(Labor)    1.0945919  0.0152898 71.5899 < 2.2e-16 ***
+## Finance       2.8583162  0.6742181  4.2395 2.241e-05 ***
+## Birth_rate    0.0583962  0.0048592 12.0176 < 2.2e-16 ***
+## College_ratio 9.4148418  0.9473645  9.9379 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\newpage
+
+Region fixed effects regression
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m2 }\OtherTok{\textless{}{-}} \FunctionTok{plm}\NormalTok{(}\FunctionTok{log}\NormalTok{(GDP) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Urbanization }\SpecialCharTok{+} \FunctionTok{log}\NormalTok{(Labor) }\SpecialCharTok{+}\NormalTok{ Finance }\SpecialCharTok{+}\NormalTok{ Birth\_rate }\SpecialCharTok{+}\NormalTok{ College\_ratio, }
+          \AttributeTok{data =}\NormalTok{ data, }\AttributeTok{model =} \StringTok{"within"}\NormalTok{)}
+\FunctionTok{coeftest}\NormalTok{(m2, }\AttributeTok{df =} \ConstantTok{Inf}\NormalTok{, }\AttributeTok{vcov =} \FunctionTok{vcovHC}\NormalTok{(m2, }\AttributeTok{type =} \StringTok{"HC1"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## z test of coefficients:
+## 
+##                Estimate Std. Error z value  Pr(>|z|)    
+## Urbanization  4.3924284  0.5463130  8.0401 8.974e-16 ***
+## log(Labor)    0.8657813  0.1366146  6.3374 2.337e-10 ***
+## Finance       3.0840124  1.5428487  1.9989 0.0456183 *  
+## Birth_rate    0.0050896  0.0104284  0.4880 0.6255156    
+## College_ratio 6.1050108  1.8010435  3.3897 0.0006997 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\newpage
+
+Region fixed effects but estimate in first differences regression
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m3 }\OtherTok{\textless{}{-}} \FunctionTok{plm}\NormalTok{(}\FunctionTok{log}\NormalTok{(GDP) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Urbanization }\SpecialCharTok{+} \FunctionTok{log}\NormalTok{(Labor) }\SpecialCharTok{+}\NormalTok{ Finance }\SpecialCharTok{+}\NormalTok{ Birth\_rate }\SpecialCharTok{+}\NormalTok{ College\_ratio, }
+          \AttributeTok{data =}\NormalTok{ data, }\AttributeTok{model =} \StringTok{"fd"}\NormalTok{)}
+\FunctionTok{coeftest}\NormalTok{(m3, }\AttributeTok{df =} \ConstantTok{Inf}\NormalTok{, }\AttributeTok{vcov =} \FunctionTok{vcovHC}\NormalTok{(m3, }\AttributeTok{type =} \StringTok{"HC1"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## z test of coefficients:
+## 
+##                  Estimate  Std. Error z value  Pr(>|z|)    
+## (Intercept)    0.08797485  0.00623837 14.1022 < 2.2e-16 ***
+## Urbanization   1.40137073  0.31491194  4.4500 8.585e-06 ***
+## log(Labor)     0.20719298  0.07261328  2.8534  0.004326 ** 
+## Finance       -2.34247232  0.81831642 -2.8626  0.004202 ** 
+## Birth_rate    -0.00083921  0.00238197 -0.3523  0.724598    
+## College_ratio -0.62878896  0.61235363 -1.0268  0.304496    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\newpage
+
+Region and time fixed effects regression
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m4 }\OtherTok{\textless{}{-}} \FunctionTok{plm}\NormalTok{(}\FunctionTok{log}\NormalTok{(GDP) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Urbanization }\SpecialCharTok{+} \FunctionTok{log}\NormalTok{(Labor) }\SpecialCharTok{+}\NormalTok{ Finance }\SpecialCharTok{+}\NormalTok{ Birth\_rate }\SpecialCharTok{+}\NormalTok{ College\_ratio, }
+          \AttributeTok{data =}\NormalTok{ data, }\AttributeTok{model =} \StringTok{"within"}\NormalTok{, }\AttributeTok{effect =} \StringTok{"twoways"}\NormalTok{)}
+\FunctionTok{coeftest}\NormalTok{(m4, }\AttributeTok{df =} \ConstantTok{Inf}\NormalTok{, }\AttributeTok{vcov =} \FunctionTok{vcovHC}\NormalTok{(m4, }\AttributeTok{type =} \StringTok{"HC1"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## z test of coefficients:
+## 
+##                 Estimate Std. Error z value  Pr(>|z|)    
+## Urbanization   1.2277355  0.4484721  2.7376 0.0061890 ** 
+## log(Labor)     0.5289553  0.1450987  3.6455 0.0002669 ***
+## Finance       -1.5154153  0.8119288 -1.8664 0.0619800 .  
+## Birth_rate     0.0090604  0.0100527  0.9013 0.3674355    
+## College_ratio  3.2401107  1.6932715  1.9135 0.0556814 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\newpage
+
+Only time fixed effects regression
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m5 }\OtherTok{\textless{}{-}} \FunctionTok{plm}\NormalTok{(}\FunctionTok{log}\NormalTok{(GDP) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Urbanization }\SpecialCharTok{+} \FunctionTok{log}\NormalTok{(Labor) }\SpecialCharTok{+}\NormalTok{ Finance }\SpecialCharTok{+}\NormalTok{ Birth\_rate }\SpecialCharTok{+}\NormalTok{ College\_ratio, }
+          \AttributeTok{data =}\NormalTok{ data, }\AttributeTok{model =} \StringTok{"within"}\NormalTok{, }\AttributeTok{effect =} \StringTok{"time"}\NormalTok{)}
+\FunctionTok{coeftest}\NormalTok{(m5, }\AttributeTok{df =} \ConstantTok{Inf}\NormalTok{, }\AttributeTok{vcov =} \FunctionTok{vcovHC}\NormalTok{(m5, }\AttributeTok{type =} \StringTok{"HC1"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## z test of coefficients:
+## 
+##               Estimate Std. Error z value  Pr(>|z|)    
+## Urbanization  0.832742   0.370352  2.2485 0.0245433 *  
+## log(Labor)    1.081261   0.031863 33.9347 < 2.2e-16 ***
+## Finance       0.335597   2.151472  0.1560 0.8760451    
+## Birth_rate    0.036157   0.010811  3.3443 0.0008249 ***
+## College_ratio 5.384494   1.940591  2.7747 0.0055258 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\end{document}

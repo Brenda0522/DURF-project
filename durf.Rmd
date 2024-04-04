@@ -1,0 +1,70 @@
+---
+title: "Durf"
+author: "Brenda Liu, Jianan Liao, Qihang Xu, Yichen Qian"
+date: "4/29/2022"
+output:
+  pdf_document: 
+    keep_tex: yes
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE)
+```
+
+```{r message=FALSE}
+library(ivreg)
+library(dplyr)
+library(plm)
+library(AER)
+library(foreign)
+```
+
+```{r read data, echo=FALSE}
+data <- read.csv("Panel.csv", encoding = "UTF-8")
+data <- pdata.frame(data, index = c("City", "Year"))
+data <- 
+data <- data %>%
+  mutate(College_ratio = I(College/Labor))
+data = data[,!(names(data) %in% c("City", "Year"))]
+```
+
+```{r sample data, echo=TRUE}
+set.seed(25)
+data[sample(nrow(data), 10, replace=FALSE), ]
+```
+
+\newpage Straight-up pooled regression
+```{r straight-up pooled regression, echo=TRUE}
+m1 <- lm(log(GDP) ~ Urbanization + log(Labor) + Finance + Birth_rate + College_ratio, 
+         data = data)
+coeftest(m1, df = Inf, vcov = vcovHC(m1, type = "HC1"))
+```
+
+\newpage Region fixed effects regression
+```{r region fixed effects regression, echo=TRUE}
+m2 <- plm(log(GDP) ~ Urbanization + log(Labor) + Finance + Birth_rate + College_ratio, 
+          data = data, model = "within")
+coeftest(m2, df = Inf, vcov = vcovHC(m2, type = "HC1"))
+```
+
+\newpage Region fixed effects but estimate in first differences regression
+```{r region fixed effects but estimate in first differences regression, echo=TRUE}
+m3 <- plm(log(GDP) ~ Urbanization + log(Labor) + Finance + Birth_rate + College_ratio, 
+          data = data, model = "fd")
+coeftest(m3, df = Inf, vcov = vcovHC(m3, type = "HC1"))
+```
+
+\newpage Region and time fixed effects regression
+```{r region and time fixed effects regression, echo=TRUE}
+m4 <- plm(log(GDP) ~ Urbanization + log(Labor) + Finance + Birth_rate + College_ratio, 
+          data = data, model = "within", effect = "twoways")
+coeftest(m4, df = Inf, vcov = vcovHC(m4, type = "HC1"))
+```
+
+\newpage Only time fixed effects regression
+```{r ignore region-specific heterogeneity and just include time fixed effects regression, echo=TRUE}
+m5 <- plm(log(GDP) ~ Urbanization + log(Labor) + Finance + Birth_rate + College_ratio, 
+          data = data, model = "within", effect = "time")
+coeftest(m5, df = Inf, vcov = vcovHC(m5, type = "HC1"))
+```
